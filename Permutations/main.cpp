@@ -1,16 +1,32 @@
-#include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
 
-void display(const deque<int> &dq)
+//Assume n is even
+void display(int n)
 {
-    cout << dq[0];
-    for(int i=1; i<dq.size(); ++i)
+    if(n == 1) {
+        cout << "1 " << endl;
+        return;
+    }
+
+    if(n > 1 && n <= 3){
+        cout << "NO SOLUTION" << endl;
+        return;
+    }
+
+    if(n == 4) {
+        cout << "3 1 4 2 " << endl;
+        return;
+    }
+
+    int left = 1, right = n/2+1;
+    for(int i = 1; i<=n/2; ++i)
     {
-        cout << " " << dq[i];
+        cout << left << " " << right << " ";
+        ++left, ++right;
     }
     cout << endl;
-
 }
 
 int main()
@@ -18,28 +34,14 @@ int main()
     int n;
     cin >> n;
 
-    deque<int> soln = {2, 4, 1, 3};
-    if(n == 1)
-        cout << 1 << endl;
-    else if(n < 4)
+    if(n > 1 && n <= 3){
         cout << "NO SOLUTION" << endl;
-    else
-    {
-        bool left = true;
-        for(int i = 5; i<=n; ++i)
-        {
-            if(left)
-            {
-                left = !left;
-                soln.push_front(i);
-            }
-            else
-            {
-                left = !left;
-                soln.push_back(i);
-            }
-        }
-        display(soln);
+        return 0;
     }
-    return 0;
+    if(n%2 == 1)
+    {
+        cout << n << " ";
+        display(n-1);
+    }
+    else display(n);
 }
