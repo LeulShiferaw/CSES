@@ -1,32 +1,31 @@
-#include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
+#include <cstdio> 
+#include <string>
 
-using namespace std;
-using namespace __gnu_pbds;
-
-template <typename T>
-using indexed_set =  tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-
-using ll = long long;
-using pi = pair<int, int>;
-using pll = pair<ll, ll>;
-using vi = vector<int>;
-using vll = vector<ll>;
-
-void solve()
-{
-    indexed_set<string> is;
-    is.insert("hello");
-    is.insert("what");
-    is.insert("egg");
-    cout << *is.find_by_order(1) << endl;
-}
-
-int main()
-{
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-
-    solve();
-    return 0;
+int main() 
+{ 
+	int a = 10, b = 0, c = 10; 
+	std::string str = "TFy!QJu ROo TNn(ROo)SLq SLq ULo+UHs UJq " 
+				"TNn*RPn/QPbEWS_JSWQAIJO^NBELPeHBFHT}TnALVlBL" 
+				"OFAkHFOuFETpHCStHAUFAgcEAelclcn^r^r\\tZvYxXyT|S~Pn SPm " 
+				"SOn TNn ULo0ULo#ULo-WHq!WFs XDt!"; 
+	while (a != 0) 
+	{ 
+	a = str[b++]; 
+		while (a-- > 64) 
+		{ 
+			if (++c == 90) 
+			{ 
+				c = 10;	  
+				putchar('\n'); 
+			} 
+			else 
+			{ 
+				if (b % 2 == 0) 
+					putchar('!'); 
+				else 
+					putchar(' '); 
+			} 
+		} 
+	} 
+	return 0; 
 }

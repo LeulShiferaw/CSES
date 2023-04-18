@@ -8,7 +8,7 @@ using namespace __gnu_pbds;
 #define S second
 #define PB push_back
 #define MP make_pair
-#define REP(i, a, b) for(int i = a; i<b; i++)
+#define REP(i, a, b) for(int i = a; i<b; i++);
 
 using indexed_set =  tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>;
 
@@ -20,6 +20,17 @@ using vll = vector<ll>;
 
 void solve()
 {
+    int t;
+    cin >> t;
+
+    while(t--)
+    {
+        int n;
+        cin >> n;
+
+        int dp[n+1][1<<8];
+        
+    }
 }
 
 int main()
