@@ -2,58 +2,66 @@
 
 using namespace std;
 
-void grid_paths(bool used[][7], int x, int y, string curr, vector<string> &paths)
+void grid_paths(bool used[][7], int x, int y, int curr, int &soln) 
 {
     if(x == 6 && y == 0) {
-        if(curr.size() == 48)
-        {
-            cout << curr << endl;
-            paths.push_back(curr);
-        }
+        if(curr == 48)
+            ++soln;
         return;
     } 
+
+    if(x-1 < 0) {
+        if(y-1 >= 0 && !used[x][y-1] && y+1 < 7 && !used[x][y+1])
+            return;
+    }
+    
+    if(x+1 >= 7) {
+        if(y-1 >= 0 && !used[x][y-1] && y+1 < 7 && !used[x][y+1])
+            return;
+    }
+
+    if(y-1 < 0) {
+        if(x-1 >= 0 && !used[x-1][y] && x+1 < 7 && !used[x+1][y])
+            return;
+    }
+
+    if(y+1 >= 7)
+    {
+        if(x-1 >= 0 && !used[x-1][y] && x+1 < 7 && !used[x+1][y])
+            return;
+    }
 
     //Up
     if(x-1 >= 0 && !used[x-1][y])
     {
         used[x][y] = true;
-        grid_paths(used, x-1, y, curr+'U', paths);
+        grid_paths(used, x-1, y, curr+1, soln);
         used[x][y] = false;
     }
-    else if(y-1 >= 0 && !used[x][y-1] && y+1 < 7 && !used[x][y+1])
-        return;
-    
-    
+
     //Down
     if(x+1 < 7 && !used[x+1][y])
     {
         used[x][y] = true;
-        grid_paths(used, x+1, y, curr+'D', paths);
+        grid_paths(used, x+1, y, curr+1, soln);
         used[x][y] = false;
     }
-    else if(y-1 >= 0 && !used[x][y-1] && y+1 < 7 && !used[x][y+1])
-        return;
 
     //Left
     if(y-1 >= 0 && !used[x][y-1])
     {
         used[x][y] = true;
-        grid_paths(used, x, y-1, curr+'L', paths);
+        grid_paths(used, x, y-1, curr+1, soln);
         used[x][y] = false;
     }
-    else if(x-1 >= 0 && !used[x-1][y] && x+1 < 7 && !used[x+1][y])
-        return;
 
     //Right
     if(y+1 < 7 && !used[x][y+1])
     {
         used[x][y] = true;
-        grid_paths(used, x, y+1, curr+'R', paths);
+        grid_paths(used, x, y+1, curr+1, soln);
         used[x][y] = false;
     }
-    else if(x-1 >= 0 && !used[x-1][y] && x+1 < 7 && !used[x+1][y])
-        return;
-    return;
 }
 
 int main()
@@ -64,8 +72,8 @@ int main()
         for(int j = 0; j<7; ++j)
             used[i][j] = false;
         
-    string curr = "";
-    grid_paths(used, 0, 0, curr, paths);
-    cout << paths.size() << endl;
+    int res = 0;
+    grid_paths(used, 0, 0, 0, res);
+    cout << res << endl;
     return 0;
 }
