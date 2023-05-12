@@ -1,31 +1,48 @@
-#include <cstdio> 
-#include <string>
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
 
-int main() 
-{ 
-	int a = 10, b = 0, c = 10; 
-	std::string str = "TFy!QJu ROo TNn(ROo)SLq SLq ULo+UHs UJq " 
-				"TNn*RPn/QPbEWS_JSWQAIJO^NBELPeHBFHT}TnALVlBL" 
-				"OFAkHFOuFETpHCStHAUFAgcEAelclcn^r^r\\tZvYxXyT|S~Pn SPm " 
-				"SOn TNn ULo0ULo#ULo-WHq!WFs XDt!"; 
-	while (a != 0) 
-	{ 
-	a = str[b++]; 
-		while (a-- > 64) 
-		{ 
-			if (++c == 90) 
-			{ 
-				c = 10;	  
-				putchar('\n'); 
-			} 
-			else 
-			{ 
-				if (b % 2 == 0) 
-					putchar('!'); 
-				else 
-					putchar(' '); 
-			} 
-		} 
-	} 
-	return 0; 
+using namespace std;
+using namespace __gnu_pbds;
+
+#define F first
+#define S second
+#define PB push_back
+#define MP make_pair
+#define endl "\n"
+#define REP(i, a, b) for(int i = a; i<b; i++)
+#define rREP(i, b, a) for(int i = b; i>=a; i--)
+
+using indexed_set =  tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>;
+
+using ll = long long;
+
+template <typename T>
+using pr = pair<T, T>;
+
+template <typename T>
+using vc = vector<T>;
+
+template <typename T>
+using vv = vector<vector<T>>;
+
+constexpr int MOD = 1e9+7;
+
+template <typename T>
+void display(const vector<T> &v)
+{
+    for(const auto &x : v) cout << x << " ";
+    cout << endl;
+}
+
+void solve()
+{
+}
+
+int main()
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
+    solve();
+    return 0;
 }

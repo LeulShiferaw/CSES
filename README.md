@@ -1,2 +1,2 @@
 # CSES
-Competitive programming site
+Competitive programming site based on the book Guide to competitive programming by Antti Laksonen

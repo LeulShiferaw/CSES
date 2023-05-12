@@ -2,6 +2,10 @@
     "files.associations": {
         "vector": "cpp",
         "algorithm": "cpp",
-        "xstring": "cpp"
-    }
+        "xstring": "cpp",
+        "span": "cpp",
+        "utility": "cpp",
+        "iostream": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }
