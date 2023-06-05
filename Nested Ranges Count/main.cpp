@@ -71,6 +71,7 @@ void solve()
     for(auto pr : ranges)
         cout << pr.first << " " << pr.second << endl;
 
+    return;
     for(int i = 0; i<og_ranges.size(); ++i)
     {
         auto curr_ind = upper_bound(ranges.begin(), ranges.end(), og_ranges[i]);

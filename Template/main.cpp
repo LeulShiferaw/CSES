@@ -4,15 +4,17 @@
 using namespace std;
 using namespace __gnu_pbds;
 
-#define F first
-#define S second
-#define PB push_back
-#define MP make_pair
+#define all(x) (x).begin(), (x).end()
+#define f first
+#define s second
+#define pb push_back
+#define mp make_pair
 #define endl "\n"
 #define REP(i, a, b) for(int i = a; i<b; i++)
 #define rREP(i, b, a) for(int i = b; i>=a; i--)
 
-using indexed_set =  tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>;
+template <typename T>
+using indexed_set =  tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 using ll = long long;
 
