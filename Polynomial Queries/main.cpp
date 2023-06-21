@@ -43,11 +43,11 @@ public:
 };
 
 //Lazy Propagating maximum segment tree
-class SegTreeLazy {
+class PolySegTreeLazy {
 public:
     int n;
     vc<pair<ll, Node>> tree;//Second is for lazy update
-    SegTreeLazy(int siz) {
+    PolySegTreeLazy(int siz) {
         int nearPow2 = (1 << (int)ceil(log2(siz)));
         n = nearPow2;
         tree.resize(2 * nearPow2, make_pair(0ll, Node(0ll, 0ll)));
@@ -164,7 +164,7 @@ void solve()
     vc<ll> t(n);
     REP(i, 0, n) cin >> t[i];
 
-    SegTreeLazy segT(n);
+    PolySegTreeLazy segT(n);
     segT.build(t);
     /*
     int add = 23;
