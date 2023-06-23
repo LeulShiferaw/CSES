@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -23,31 +23,35 @@ long long exp(int a, int b) {
 }
 
 void solve() {
-    int n, m;
-    cin >> n >> m;
+    int n;
+    cin >> n;
 
-    long long fac[m+n+1];
+    if(n%2 == 1) {
+        cout << 0 << endl;
+        return;
+    }
+    n/=2;
+    long long fac[2*n+1];
     fac[0] = 1;
-    for(int i = 1; i<=m+n; ++i) {
+    for(int i = 1; i<=2*n; ++i) {
         fac[i] = fac[i-1] * i;
         fac[i] %= MOD;
     }
 
-    long long res = fac[n+m-1];
-    res *= exp(fac[m], MOD-2);
+    long long res = fac[2*n];
+    res *= exp(fac[n], MOD-2);
     res %= MOD;
-    res *= exp(fac[n-1], MOD-2);
+    res *= exp(fac[n], MOD-2);
     res %= MOD;
-
+    res *= exp(n+1, MOD-2);
+    res %= MOD;
     cout << res << endl;
 }
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
     solve();
-
     return 0;
 }
